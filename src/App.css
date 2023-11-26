@@ -79,7 +79,7 @@ nav{
   background-color: #17cf97;
   position: absolute;
   bottom: -4px;
-  left: 30px;
+  left: 26px;
 }
 #navbar li:last-child{
   border-right: 0;
@@ -103,7 +103,7 @@ nav{
   background-color: #17cf97;
   position: absolute;
   bottom: -4px;
-  left: 25px;
+  left: 26px;
 }
 .toggle-menu i{
   color: #fff;
