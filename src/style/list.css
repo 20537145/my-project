@@ -1,0 +1,14 @@
+.product-shop-container{
+    display: flex;
+    justify-content: center;
+}
+.product-shop-container img{
+    width: 500px;
+    height: 500px;
+}
+.button.shop{
+    margin-top: 20px;
+    height: 70px;
+    width: 200px;
+    border: #000 solid 1px;
+}

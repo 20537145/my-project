@@ -696,7 +696,7 @@ max-width: 500px;
   left: 40%;
   z-index: 1;
 }
-.middle-background button {
+.button {
   width: 150px;
   border: unset;
   padding: 15px 25px;
@@ -715,7 +715,7 @@ max-width: 500px;
 }
 
 
-.middle-background button::before {
+.button::before {
   content: "";
   position: absolute;
   top: 0;
@@ -730,11 +730,11 @@ max-width: 500px;
 
 }
 
-.middle-background button:hover {
+.button:hover {
   color: #e8e8e8;
 }
 
-.middle-background button:hover::before {
+.button:hover::before {
   width: 100%;
 }
 
