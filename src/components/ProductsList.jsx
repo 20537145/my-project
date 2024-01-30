@@ -3,7 +3,7 @@ import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 
 import { useNavigate } from "react-router-dom";
-import { fetchProducts } from "../redux/AllProducts";
+import { fetchProducts } from "../redux/productList";
 
 const ProductsList = () => {
   const dispatch = useDispatch()
