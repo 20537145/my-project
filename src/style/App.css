@@ -3,14 +3,17 @@
   padding: 0;
   box-sizing: border-box;
 }
-
+hr{
+  margin-top: 20px;
+  width: 100%;
+}
 #background {
   box-sizing: border-box;
   background: url("../imgs/bg-layout.jpg") center center no-repeat;
   background-size: cover;
   width: 100%;
   height: 1000px;
-  background-color: #000;
+  background-color: #fff;
 }
 
 .nav {
@@ -28,13 +31,17 @@
   background-color: #fff;
   transition: 0.5s ease-in-out;
 }
-
-.nav.active .search-btn{
+.nav.active .login-component a{
+  color: #000;
+}
+.nav.active .search-btn {
   background-color: #000;
   color: #fff;
 }
-
-.logo-container img{
+.nav.active .header-icons a{
+color: #000 !important;
+}
+.logo-container img {
   width: 80px;
   border-radius: 50%;
 }
@@ -55,7 +62,7 @@
   border: 0;
   background: #fff;
 }
-.search-btn.active{
+.search-btn.active {
   background-color: #000;
 }
 .search-btn.active i {
@@ -92,7 +99,7 @@
   color: #fff !important;
 }
 .change-color nav ul li a:hover {
-color: #000 !important;
+  color: #000 !important;
 }
 .change-color nav ul li:last-child {
   border-right: 0 !important;
@@ -100,7 +107,6 @@ color: #000 !important;
 .ul-bg.active #navbar a {
   color: #000 !important;
 }
-
 
 .ul-bg.active #navbar li {
   position: relative;
@@ -138,7 +144,7 @@ color: #000 !important;
   position: absolute;
   bottom: -38px;
   left: 0;
-  transition: width 0.3s ease; /* Add a transition for smooth animation */
+  transition: width 0.3s ease; 
 }
 
 #navbar li a:hover::after {
@@ -153,7 +159,6 @@ color: #000 !important;
 }
 @media screen and (max-width: 767px) {
   .search-box {
-    
     right: 60px;
     border-radius: 40px;
     padding: 10px;
@@ -161,63 +166,85 @@ color: #000 !important;
     align-items: center;
     justify-content: center;
   }
+  #header-icons{
+    position: relative;
+    left: 0;
+  }
+.shop-container{
+  width: 100%;
+  text-align: center;
+}
+.product-name{
+  text-transform: uppercase;
+}
+.product-details{
+  margin-top: 10px;
+}
 
+.shop-container img{
+  width: 100%;
+}
+.shop-container h2{
+  text-align: center;
+}
+.shop-container .hr{
+    margin: 30px auto;
+    width: 90%;
+}
   .toggle-menu {
     display: block;
 
-   position: absolute;
+    position: absolute;
     left: 35px;
-
-
 
     z-index: 1022;
     margin-right: 10px;
   }
-  .nav.active .toggle-menu i{
+  .nav.active .toggle-menu i {
     color: #000;
-    
   }
-  .fas.fa-times{
+  .fas.fa-times {
     transition: 0.5s;
   }
   .nav.active .fas.fa-times,
-  .nav.active #navbar li a{
+  .nav.active #navbar li a {
     color: #fff !important;
   }
-  .nav.active #navbar li{
+  .nav.active #navbar li {
     border: none !important;
   }
   .toggle-menu i {
     font-size: 15px;
     cursor: pointer;
   }
-  .toggle-menu.active .fas.fa-bars{
+  .toggle-menu.active .fas.fa-bars {
     color: #000;
   }
-  .fas.fa-times{
+  .fas.fa-times {
     color: #fff !important;
   }
-  .toggle-menu.active i{
-    color:#000;
+  .toggle-menu.active i {
+    color: #000;
   }
-    .logo-container img{
-      height: 60px;
-      width: 60px;
-      margin-left: 40px;
-    }
-  
+  .logo-container img {
+    position: relative;
+    height: 60px;
+    width: 60px;
+    left: 60px;
+  }
+
   #navbar li:first-child {
     margin-top: 50px;
   }
-#navbar li a {
-  color: #fff;
-}
+  #navbar li a {
+    color: #fff;
+  }
   #navbar li {
     margin-bottom: 25px;
     border-right: 0 !important;
   }
-  
-  .nav.active{
+
+  .nav.active {
     display: flex;
     justify-content: space-around;
     z-index: 1021;
@@ -230,7 +257,7 @@ color: #000 !important;
     align-items: flex-start;
     justify-content: flex-start;
     position: fixed;
-  z-index: 1020;
+    z-index: 1020;
     top: 0;
     left: -600px;
     height: 100%;
@@ -250,7 +277,6 @@ color: #000 !important;
   }
   .ul-bg.active #navbar a {
     color: #000;
-
   }
   #navbar li a:focus::after {
     content: "";
@@ -272,7 +298,7 @@ color: #000 !important;
   }
 }
 /*productcreate*/
-/* ProductCreate.css */
+/* ProductCreate.css ***********************************************************************************/
 
 .product-form {
   max-width: 400px;
@@ -318,9 +344,49 @@ color: #000 !important;
   color: red;
 }
 
-/* login */
+/* login ***********************************************************************************/
 @import url("https://fonts.googleapis.com/css?family=Montserrat:400,800");
-
+#header-icons{
+  width: 200px;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  position: relative;
+  right: -100px;
+}
+#header-icons a{
+  font-size: 25px;
+}
+.cart a{
+  position: relative;
+  bottom: -2px;
+  color: #fff;
+}
+.wishlist a{
+  position: relative;
+  bottom: -2px;
+  color: #fff;
+}
+.login-component{
+  position: relative;
+  bottom: -2px;
+}
+.header-icons.active a{
+  color: #000;
+}
+.login-component a{
+text-decoration: none;
+color: #fff;
+font-size: large;
+}
+.login-component button{
+  background-color: transparent;
+  color: #fff;
+  border: none;
+}
+.login-component i{
+  font-size: 2em;
+}
 .title-log {
   font-weight: bold;
   margin: 0;
@@ -405,7 +471,7 @@ form {
   max-width: 100%;
   min-height: 480px;
   line-height: 1.5;
-	font-family: 'Poppins', sans-serif;
+  font-family: "Poppins", sans-serif;
 }
 
 .form-container {
@@ -470,7 +536,7 @@ form {
 
 .overlay {
   background: #000;
-  background: linear-gradient(to right, grey, #fff,grey);
+  background: linear-gradient(to right, grey, #fff, grey);
   background-repeat: no-repeat;
   background-size: cover;
   background-position: 0 0;
@@ -533,160 +599,156 @@ form {
   height: 40px;
   width: 40px;
 }
-/* home page */
-.middle-background h6{
+/* home page ***********************************************************************************/
+.middle-background h6 {
   font-size: 20px;
 
   text-transform: capitalize;
-  font-weight:500;
+  font-weight: 500;
   font-family: "Raleway", sans-serif;
-  color: #fff; 
+  color: #fff;
   margin-bottom: 50px;
 }
-  .middle-background h1{
+.middle-background h1 {
   text-transform: capitalize;
-  font-weight:400;
+  font-weight: 400;
   font-family: "Raleway", sans-serif;
- color: #fff; 
-margin-bottom: 50px;
+  color: #fff;
+  margin-bottom: 50px;
 }
-.empty-section{
+.empty-section {
   margin: auto;
   padding: 80px 0;
 }
-.empty-section h2{
+.empty-section h2 {
   color: #151208d5;
   font-weight: 200px;
   text-align: center;
-  font-family: 'raleway' , sans-serif;
-  margin-bottom: 17px ;
+  font-family: "raleway", sans-serif;
+  margin-bottom: 17px;
 }
 
-.home-text{
+.home-text {
   margin: auto;
-  font-family: 'Montserrat' , sans-serif; 
+  font-family: "Montserrat", sans-serif;
   font-size: 20px;
   max-width: 800px;
   letter-spacing: 1px;
   color: #595959;
 }
-/* ProductCard.css */
+/* ProductCard.css ************************************************************************************/
 
-
-
-.product-cont{
+.product-cont {
   margin: 15px 15px 40px;
 }
 .products-section {
-display: grid;
-grid-template-columns: repeat(4, 1fr);
-grid-template-rows: repeat(2, 1fr);
-  
-gap: 15px;
-justify-content: center;
-overflow: hidden;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: repeat(2, 1fr);
 
+  gap: 15px;
+  justify-content: center;
+  overflow: hidden;
 }
 
 .product-card {
-margin: auto;
-overflow: hidden;
-width: 100%;
-height: auto;
-max-width: 440px; /* Set a maximum width to control the size on larger screens */
-cursor: pointer;
+  margin: auto;
+  overflow: hidden;
+  width: 100%;
+  height: auto;
+  max-width: 440px; /* Set a maximum width to control the size on larger screens */
+  cursor: pointer;
 }
 
 .product-card img {
-width: 100%;
-height: 400px;
+  width: 100%;
+  height: 400px;
 }
 
 .product-details {
-margin-bottom: 10px;
+  margin-bottom: 10px;
 }
 
 .product-name {
   font-family: "Raleway", sans-serif;
-font-weight: 400;
-color: #212129;
-font-size: 1.2em;
-margin-bottom: 5px;
-text-align: start;
+  font-weight: 400;
+  color: #212129;
+  font-size: 1.2em;
+  margin-bottom: 5px;
+  text-align: start;
 }
 
 .price {
   font-family: "Raleway", sans-serif;
-font-weight: 400;
-color: #595959;
-margin-bottom: 5px;
+  font-weight: 400;
+  color: #595959;
+  margin-bottom: 5px;
 }
 
 .availability {
-
-font-weight: bold;
+  font-weight: bold;
 }
 
 .in-stock {
   font-family: "Raleway", sans-serif;
-font-weight: 500;
-color: green;
+  font-weight: 500;
+  color: green;
 }
 
 .out-of-stock {
-color: #CF9362;
+  color: #cf9362;
 }
 .Login {
-    display: none;
-  }
+  display: none;
+}
 @media screen and (min-width: 1055px) {
   .product-card {
-    
-    
     height: 450px;
-max-width: 450px; /* Set a maximum width to control the size on larger screens */
-
+    max-width: 450px; /* Set a maximum width to control the size on larger screens */
   }
-  .product-card img{
+  .product-card img {
     height: 360px;
   }
 }
 @media screen and (max-width: 1055px) {
   .products-section {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      grid-template-rows: repeat(4, 1fr);
-      
-    }
-    .product-card {
-      margin: auto;
-      overflow: hidden;
-      
-      height: 400px;
-max-width: 500px; /* Set a maximum width to control the size on larger screens */
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(4, 1fr);
+  }
+  .product-card {
+    margin: auto;
+    overflow: hidden;
 
-    }
-.product-card img{
-  height: 300px;
-}
+    height: 400px;
+    max-width: 500px; /* Set a maximum width to control the size on larger screens */
+  }
+  .product-card img {
+    height: 300px;
+  }
 }
 @media screen and (max-width: 769px) {
-  .product-card img{
+  .product-card img {
     height: 200px;
   }
   .product-card {
     height: 280px;
-max-width: 500px;
+    max-width: 500px;
   }
   .middle-background {
     top: 30% !important;
     left: 10% !important;
   }
-  #background{
+  #background {
     max-height: 700px;
   }
-  
- 
+  .empty-section h2 {
+    font-size: x-large;
+  }
+  .empty-section {
+    text-align: center;
+    width: 70%;
+  }
 }
 
 /* button */
@@ -705,7 +767,7 @@ max-width: 500px;
   background: #fff;
   position: relative;
   font-size: 17px;
-  font-family:'Raleway', sans-serif;
+  font-family: "Raleway", sans-serif;
   /* -webkit-box-shadow: 4px 8px 19px -3px rgba(0, 0, 0, 0.27); */
   /* box-shadow: 4px 8px 19px -3px rgba(0, 0, 0, 0.27); */
   transition: all 500ms;
@@ -713,7 +775,6 @@ max-width: 500px;
   outline: 1px solid #fff;
   cursor: pointer;
 }
-
 
 .button::before {
   content: "";
@@ -727,7 +788,6 @@ max-width: 500px;
   /* box-shadow: 4px 8px 19px -3px rgba(0, 0, 0, 0.27); */
   transition: all 250ms;
   overflow: hidden;
-
 }
 
 .button:hover {
@@ -739,100 +799,96 @@ max-width: 500px;
 }
 
 /* footer */
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap");
 
-
-.container-footer{
-	max-width: 1170px;
-	margin:auto;
-
-    
+.container-footer {
+  max-width: 1170px;
+  margin: auto;
 }
-.row-footer{
-	display: flex;
-	flex-wrap: wrap;
+.row-footer {
+  display: flex;
+  flex-wrap: wrap;
 }
-.footer-ul{
-	list-style: none;
+.footer-ul {
+  list-style: none;
 }
-.footer{
-	background-color: #151208d5;
-    padding: 70px 0;
-    position:relative !important;
-    bottom: 0;
-	width: 100%;
-	line-height: 1.5;
-	font-family: 'Poppins', sans-serif;
+.footer {
+  background-color: #151208d5;
+  padding: 70px 0;
+  position: relative !important;
+  bottom: 0;
+  width: 100%;
+  line-height: 1.5;
+  font-family: "Poppins", sans-serif;
 }
-.footer-col{
-   width: 25%;
-   padding: 0 15px;
+.footer-col {
+  width: 25%;
+  padding: 0 15px;
 }
-.footer-col h4{
-	font-size: 18px;
-	color: #ffffff;
-	text-transform: capitalize;
-	margin-bottom: 35px;
-	font-weight: 500;
-	position: relative;
-	line-height: 1.5;
-	font-family: 'Poppins', sans-serif;
+.footer-col h4 {
+  font-size: 18px;
+  color: #ffffff;
+  text-transform: capitalize;
+  margin-bottom: 35px;
+  font-weight: 500;
+  position: relative;
+  line-height: 1.5;
+  font-family: "Poppins", sans-serif;
 }
-.footer-col h4::before{
-	content: '';
-	position: absolute;
-	left:2px;
-	bottom: -10px;
-	background-color: #fff;
-	height: 2px;
-	box-sizing: border-box;
-	width: 50px;
+.footer-col h4::before {
+  content: "";
+  position: absolute;
+  left: 2px;
+  bottom: -10px;
+  background-color: #fff;
+  height: 2px;
+  box-sizing: border-box;
+  width: 50px;
 }
-.footer-col ul li:not(:last-child){
-	margin-bottom: 10px;
+.footer-col ul li:not(:last-child) {
+  margin-bottom: 10px;
 }
-.footer-col ul li a{
-	font-size: 16px;
-	text-transform: capitalize;
-	color: #ffffff;
-	text-decoration: none;
-	font-weight: 300;
-	color: #bbbbbb;
-	display: block;
-	transition: all 0.3s ease;
+.footer-col ul li a {
+  font-size: 16px;
+  text-transform: capitalize;
+  color: #ffffff;
+  text-decoration: none;
+  font-weight: 300;
+  color: #bbbbbb;
+  display: block;
+  transition: all 0.3s ease;
 }
-.footer-col ul li a:hover{
-	color: #ffffff;
-	padding-left: 8px;
+.footer-col ul li a:hover {
+  color: #ffffff;
+  padding-left: 8px;
 }
-.footer-col .social-links a{
-	display: inline-block;
-	height: 40px;
-	width: 40px;
-	background-color: rgba(255,255,255,0.2);
-	margin:0 10px 10px 0;
-	text-align: center;
-	line-height: 40px;
-	border-radius: 50%;
-	color: #ffffff;
-	transition: all 0.5s ease;
+.footer-col .social-links a {
+  display: inline-block;
+  height: 40px;
+  width: 40px;
+  background-color: rgba(255, 255, 255, 0.2);
+  margin: 0 10px 10px 0;
+  text-align: center;
+  line-height: 40px;
+  border-radius: 50%;
+  color: #ffffff;
+  transition: all 0.5s ease;
 }
-.footer-col .social-links a:hover{
-	color: #24262b;
-	background-color: #ffffff;
+.footer-col .social-links a:hover {
+  color: #24262b;
+  background-color: #ffffff;
 }
 
 /*responsive*/
-@media(max-width: 768px){
-  .footer-col{
+@media (max-width: 768px) {
+  .footer-col {
     width: 50%;
     margin-bottom: 30px;
-	margin-left: 30px;
+    margin-left: 30px;
+  }
 }
-
-}
-@media(max-width: 574px){
-  .footer-col{
+@media (max-width: 574px) {
+  .footer-col {
     width: 100%;
-}
+  }
 }

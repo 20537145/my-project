@@ -34,8 +34,9 @@ const ProductIdShop = () => {
 
   // Display product details
   return (
-    <div className="product-shop-container">
-      <section>
+    <div >
+      <section >
+        <div className="shop-container">
         <img
           src={`https://h-royal-backned.onrender.com/uploads/${selectedProduct.image}`}
           alt={selectedProduct.name}
@@ -46,9 +47,13 @@ const ProductIdShop = () => {
           <p className={selectedProduct.Availability ? "in-stock" : "out-of-stock"}>
             {selectedProduct.Availability ? "En stock" : "Hors stock"}
           </p>
+          <hr className="hr"/>
+          <p>{selectedProduct.description}</p>
           <button className="button shop">
             Ajouter au panier
           </button>
+          <hr />
+        </div>
         </div>
       </section>
     </div>
