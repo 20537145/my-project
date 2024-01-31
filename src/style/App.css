@@ -699,9 +699,9 @@ form {
 .out-of-stock {
   color: #cf9362;
 }
-.Login {
+/* .Login {
   display: none;
-}
+} */
 @media screen and (min-width: 1055px) {
   .product-card {
     height: 450px;
