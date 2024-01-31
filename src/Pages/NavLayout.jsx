@@ -1,8 +1,8 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Link, Outlet, useLocation } from "react-router-dom";
 import logo from "../imgs/logo.png";
 import { useDispatch, useSelector } from "react-redux";
-import { logout } from "../redux/userSlice";
+import { logout, setAuthStatus } from "../redux/userSlice";
 import { faHeart } from "@fortawesome/free-regular-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCartShopping, faUserLarge } from "@fortawesome/free-solid-svg-icons";
@@ -13,6 +13,15 @@ function NavLayout() {
   const [nav, setNav] = useState(false);
   const dispatch = useDispatch();
   const isAuth = useSelector((state) => state.auth.isAuth);
+  useEffect(() => {
+    const checkAuthStatus = () => {
+      const token = localStorage.getItem('token');
+      if (token) {
+        dispatch(setAuthStatus(true));
+      }
+    }; 
+    checkAuthStatus();
+  }, [dispatch]);
   let [clicked, setClicked] = useState(false);
   const logoutHandler = () => {
     dispatch(logout());
@@ -33,15 +42,21 @@ function NavLayout() {
   };
   window.addEventListener("scroll", changeBackground);
   const shouldApplyBackground = location.pathname === "/";
-
+const isHovered = ()=>{
+  setNav(true)
+}
+const isntHovered=()=>{
+  setNav(false)
+}
   return (
     <>
       
-        <header
+        <header 
           className={shouldApplyBackground ? "change-color" : ""}
           id={shouldApplyBackground ? "background" : ""}
         >
-          <nav className={nav ? "nav active" : "nav"}>
+          <nav  onMouseOver={isHovered}
+      onMouseOut={isntHovered} className={`${nav ? "nav active" : "nav"}`}>
             <div className="logo-container">
               <Link to="/">
                 <img src={logo} alt="" />
@@ -101,6 +116,7 @@ function NavLayout() {
             </div>
             </div>
           </nav>
+         
       </header>
       <Outlet />
       <footer className="footer">
