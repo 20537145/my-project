@@ -41,14 +41,19 @@ const ProductIdShop = () => {
           src={`https://h-royal-backned.onrender.com/uploads/${selectedProduct.image}`}
           alt={selectedProduct.name}
         />
-        <div className="product-details">
-          <h2 className="product-name">{selectedProduct.name}</h2>
+        <div className="product-details allofit">
+          <h2 className="product-name ">{selectedProduct.name}</h2>
           <p className="price">{selectedProduct.price} DT</p>
           <p className={selectedProduct.Availability ? "in-stock" : "out-of-stock"}>
             {selectedProduct.Availability ? "En stock" : "Hors stock"}
           </p>
           <hr className="hr"/>
           <p>{selectedProduct.description}</p>
+          <div className="product-quantity">
+            <button>-</button>
+            <span></span>
+            <button>+</button>
+          </div>
           <button className="button shop">
             Ajouter au panier
           </button>

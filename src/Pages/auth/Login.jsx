@@ -1,30 +1,46 @@
-import React, {  useState } from 'react'
-import { useDispatch } from 'react-redux';
+import React, {  useEffect, useState } from 'react'
+import { useDispatch, useSelector } from 'react-redux';
 import {  loginUser, registerUser } from '../../redux/userSlice';
+import { useNavigate } from 'react-router-dom';
+
 
 const Login = () => {
+	const navigate = useNavigate()
   const [clicked, setClicked] = useState(true);
   const [firstName,setFirstName]=useState('')
   const [lastName,setLastName]=useState('')
   const [email,setEmail]=useState('')
   const [password,setPassword]=useState('')
+  const isAuth = useSelector((state) => state.auth.isAuth);
   const dispatch = useDispatch()
   const loginHandler = (e)=>{
     e.preventDefault()
     const usr = {email,password}
     dispatch(loginUser(usr))
+	
   }
+
+  useEffect(() => {
+    if (isAuth) {
+      const redirectPath = '/';
+    setTimeout(() => {
+        navigate(redirectPath);
+      }, 5);
+
+    }
+  }, [isAuth,navigate]);
   const registerHandler = (e)=> {
     e.preventDefault()
-    const newUser = {firstName,lastName,email, password}
+    const newUser = {firstName,lastName,email, password
+	}
     dispatch(registerUser(newUser))}
   const switchForm = () => {
     setClicked(!clicked);
   };
- 
+
   return (
-    <main>
-<div  className={clicked?"Login right-panel-active":"Login"} id="Login">
+    <main >
+<div  className={`${clicked?"Login right-panel-active":"Login"}`} id="Login">
 	<div className="form-container sign-up-container">
 		<form action="#" className='cont-input'>
 			<h1>Créer un compte</h1>
@@ -53,7 +69,7 @@ const Login = () => {
 			<input onChange={(e)=>setEmail(e.target.value)} value={email} type="email" placeholder="E-mail" />
 			<input onChange={(e)=>setPassword(e.target.value)} value={password} type="password" placeholder="Mot de passe" />
 			<a className='link'  href="https://www.facebook.com">Mot de passe oublié?</a>
-			<button className='btn' onClick={loginHandler} >Se connecter</button>
+			<button   className='btn' onClick={loginHandler} >Se connecter </button>
 		</form>
 	</div>
 	<div className="overlay-container">

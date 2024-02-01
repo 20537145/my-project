@@ -5,7 +5,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { logout, setAuthStatus } from "../redux/userSlice";
 import { faHeart } from "@fortawesome/free-regular-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faCartShopping, faUserLarge } from "@fortawesome/free-solid-svg-icons";
+import { faCartShopping, faRightToBracket, faUserLarge } from "@fortawesome/free-solid-svg-icons";
 
 
 function NavLayout() {
@@ -74,15 +74,7 @@ const isntHovered=()=>{
                   <Link to="profile">Profile</Link>
                 </li>
               
-                {isAuth ? (
-                  <li onClick={logoutHandler}>
-                    <Link onClick={()=>setClicked(false)} to="login">Logout</Link>
-                  </li>
-                ) : (
-                  <li onClick={()=>setClicked(false)}>
-                    <Link to="login">Login</Link>
-                  </li>
-                )}
+                
               </ul>
             </div>
             <div
@@ -109,11 +101,20 @@ const isntHovered=()=>{
               <FontAwesomeIcon icon={faCartShopping} />
               </Link>
             </div>
+            {
+              isAuth?(<div className="login-component">
+                <Link onClick={logoutHandler} to='/'>
+                <FontAwesomeIcon icon={faRightToBracket} />
+                </Link>
+              </div>):(
           <div className="login-component">
               <Link to='login'>
               <FontAwesomeIcon icon={faUserLarge} />
               </Link>
             </div>
+
+              )
+            }
             </div>
           </nav>
          

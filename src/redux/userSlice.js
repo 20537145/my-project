@@ -6,7 +6,8 @@ const initialState = {
   token: localStorage.getItem("x-auth-token"),
   error: null,
   users:[],
-  wishlist:[]
+  status: 'idle',
+
 };
 export const registerUser = createAsyncThunk(
   "auth/register",
@@ -62,11 +63,11 @@ const authSlice = createSlice({
   },
   extraReducers: (builder) => {
     builder.addCase(registerUser.fulfilled,(state,action)=>{
-      localStorage.setItem('token',action.payload.token);
-      state.user=action.payload.user;
-      state.isAuth=true;
+      state.user=null;
+      state.isAuth=false;
       state.token = action.payload.token
       state.error = null
+      state.status = 'registered'
     })
     .addCase(registerUser.rejected, (state, action)=> {
       localStorage.removeItem("token")
