@@ -13,6 +13,7 @@ import ProductCreate from './components/ProductCreateComponent';
 import AllProductsComponent from './components/AllProductsComponent';
 import ProductIdShop from './components/ProductIdShop';
 import WishList from './components/WishList';
+import Cart from './components/Cart';
 
 
 
@@ -27,7 +28,7 @@ const router = createBrowserRouter(
       <Route path='profile' element={<Profile />} />
       <Route path='login' element={<Login />} />
       <Route path='wishlist' element={<WishList />} />
-      <Route path='cart' element={<Login />} />
+      <Route path='cart' element={<Cart />} />
       <Route path='products'>
         <Route index element={<AllProductsComponent />} />
         <Route path='create' element={<ProductCreate />} />
