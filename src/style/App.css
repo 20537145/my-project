@@ -950,3 +950,11 @@ justify-content: center;
 .d-b{
   display: none;
 }
+.status-error{
+  margin-top:10px;
+color: red;
+}
+.status-succeed{
+  margin-top: 10px;
+  color: #79aa7a;
+}

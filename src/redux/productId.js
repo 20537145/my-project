@@ -7,7 +7,7 @@ export const fetchProductById = createAsyncThunk(
   'productsId/fetchProductById',  // Corrected the slice name here
   async (productId) => {
     const response = await axios.get(`https://h-royal-backned.onrender.com/products/${productId}`);
-    console.log("API response:", response.data);
+  
 
     return response.data.product;
 

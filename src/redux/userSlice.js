@@ -6,7 +6,7 @@ const initialState = {
   token: localStorage.getItem("x-auth-token"),
   error: null,
   users:[],
-  status: 'idle',
+  status: '',
 
 };
 export const registerUser = createAsyncThunk(
@@ -75,6 +75,7 @@ const authSlice = createSlice({
       state.user = null;
       state.token = null;
       state.error = action.payload
+      state.status = "Registration failed. Please try again."
       })
       .addCase(loginUser.fulfilled,(state,action)=>{
         localStorage.setItem('token',action.payload.token)

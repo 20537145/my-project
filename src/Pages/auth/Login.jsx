@@ -12,6 +12,7 @@ const Login = () => {
   const [email,setEmail]=useState('')
   const [password,setPassword]=useState('')
   const isAuth = useSelector((state) => state.auth.isAuth);
+  const statusS = useSelector((state) => state.auth.status);
   const dispatch = useDispatch()
   const loginHandler = (e)=>{
     e.preventDefault()
@@ -55,6 +56,7 @@ const Login = () => {
 			<input onChange={(e)=>setEmail(e.target.value)} value={email} type="email" placeholder="E-mail" />
 			<input onChange={(e)=>setPassword(e.target.value)} value={password} type="password" placeholder="Mot de passe" />
 			<button className='btn' onClick={registerHandler} >S'inscrire</button>
+			<p className={statusS==="Registration failed. Please try again."?'status-error':'status-succeed'}>{statusS}</p>
 		</form>
 	</div>
 	<div className="form-container sign-in-container">
@@ -83,6 +85,7 @@ const Login = () => {
 				<h1>Bonjour</h1>
 				<p className='text'>Entrez vos informations personnelles et commencez votre voyage avec nous</p>
 				<button onClick={switchForm} className="ghost btn" id="signUp">S'inscrire</button>
+
 			</div>
 		</div>
 	</div>
