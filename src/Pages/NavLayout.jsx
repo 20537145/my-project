@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { Link, Outlet, useLocation } from "react-router-dom";
 import logo from "../imgs/logo.png";
 import { useDispatch, useSelector } from "react-redux";
-import { logout, setAuthStatus } from "../redux/userSlice";
+import { fetchUserProfile, logout, setAuthStatus } from "../redux/userSlice";
 import { faHeart } from "@fortawesome/free-regular-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCartShopping, faRightToBracket, faUserLarge } from "@fortawesome/free-solid-svg-icons";
@@ -11,7 +11,20 @@ import { faCartShopping, faRightToBracket, faUserLarge } from "@fortawesome/free
 function NavLayout() {
   const location = useLocation();
   const [nav, setNav] = useState(false);
+  const token = useSelector((state) => state.auth.token);
+  const user = useSelector(state => state.auth.user);
+  useEffect(() => {
+    if (user) {
+      localStorage.setItem('user', JSON.stringify(user));
+    }
+  }, [user]);
   const dispatch = useDispatch();
+  useEffect(() => {
+    if (token) {
+      dispatch(fetchUserProfile(token));
+    }
+  }, [dispatch, token]);
+
   const isAuth = useSelector((state) => state.auth.isAuth);
   useEffect(() => {
     const checkAuthStatus = () => {
