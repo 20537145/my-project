@@ -1,0 +1,33 @@
+.drop-container{
+    position: absolute !important;
+    right: 130px;
+    top: 4rem;
+    display: flex;
+    flex-direction: column;
+    background-color: #fff;
+    border: solid 1px gray;
+    border-radius: 15px;
+    padding: 10px;
+    overflow: hidden;
+}
+.ul_container,
+.drop-container ul{
+    display: flex;
+    flex-direction: column;
+    gap: 4;
+}
+.drop-container .ul_container li,
+.drop-container li {
+    list-style: none;
+  font-family: "raleway", sans-serif;
+    font-size: small;
+    padding: 5px;
+    cursor: pointer;
+}
+
+.drop-container .ul_container li a,
+.drop-container li a {
+    text-decoration: none;
+    color: black !important;
+    font-family: "raleway", sans-serif;
+}

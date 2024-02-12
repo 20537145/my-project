@@ -2,6 +2,7 @@
 import { Route, RouterProvider, createBrowserRouter, createRoutesFromElements } from 'react-router-dom';
 import './style/App.css'
 import './style/list.css'
+import './style/dropDown.css'
 
 import NavLayout from './Pages/NavLayout';
 import HomePage from './Pages/HomePage';
@@ -14,6 +15,7 @@ import AllProductsComponent from './components/AllProductsComponent';
 import ProductIdShop from './components/ProductIdShop';
 import WishList from './components/WishList';
 import Cart from './components/Cart';
+import UserForms from './components/UserForms';
 
 
 
@@ -26,6 +28,7 @@ const router = createBrowserRouter(
       <Route path='about' element={<About />} />
       <Route path='search' element={<Search />} />
       <Route path='profile' element={<Profile />} />
+      <Route path='lala' element={<UserForms />} />
       <Route path='login' element={<Login />} />
       <Route path='wishlist' element={<WishList />} />
       <Route path='cart' element={<Cart />} />
