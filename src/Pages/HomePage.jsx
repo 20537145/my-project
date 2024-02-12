@@ -7,8 +7,8 @@ function HomePage() {
   return (
     <div>
    <div className="middle-background">
-    <h6>hello to this mf website</h6>
-    <h1>hello to this mf website</h1>
+    <h6>hello to this website</h6>
+    <h1>hello to this website</h1>
     <Link to='products'>
     <button className='button' >SHOP NOW</button>
     </Link>
