@@ -15,7 +15,7 @@ import AllProductsComponent from './components/AllProductsComponent';
 import ProductIdShop from './components/ProductIdShop';
 import WishList from './components/WishList';
 import Cart from './components/Cart';
-import UserForms from './components/UserForms';
+import UserInfo from './Pages/userInfo';
 
 
 
@@ -27,8 +27,10 @@ const router = createBrowserRouter(
       <Route index element={<HomePage />} />
       <Route path='about' element={<About />} />
       <Route path='search' element={<Search />} />
-      <Route path='profile' element={<Profile />} />
-      <Route path='lala' element={<UserForms />} />
+      <Route path='profile'  >
+        <Route index element={<UserInfo />}/>
+      <Route path='me' element={<Profile />} />
+      </Route>
       <Route path='login' element={<Login />} />
       <Route path='wishlist' element={<WishList />} />
       <Route path='cart' element={<Cart />} />

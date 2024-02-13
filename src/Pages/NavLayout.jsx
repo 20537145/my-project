@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { Link, Outlet, useLocation } from "react-router-dom";
 import logo from "../imgs/logo.png";
 import { useDispatch, useSelector } from "react-redux";
-import { fetchUserProfile,  setAuthStatus } from "../redux/userSlice";
+import { fetchUserProfile,  logout,  setAuthStatus } from "../redux/userSlice";
 import { faHeart } from "@fortawesome/free-regular-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
@@ -75,6 +75,11 @@ function NavLayout() {
   const isntHovered = () => {
     setNav(false);
   };
+  const isAuth = useSelector((state) => state.auth.isAuth);
+  const logoutHandler = () => {
+    dispatch(logout());
+    setClicked(false)
+  };
   return (
     <>
       <header
@@ -99,6 +104,10 @@ function NavLayout() {
               <li onClick={() => setClicked(false)}>
                 <Link to="products">Shop</Link>
               </li>
+              <li className="li-3rd-child" onClick={() => setClicked(false)}>
+                <Link to="profile">profile</Link>
+              </li>
+              {isAuth?(<li onClick={logoutHandler}><Link to="/">déconnecter</Link></li>):(<li onClick={()=>setClicked(false)}> <Link to='login'>connecter</Link></li>)}
             </ul>
           </div>
           <div

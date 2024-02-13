@@ -31,3 +31,8 @@
     color: black !important;
     font-family: "raleway", sans-serif;
 }
+@media screen and (max-width: 769px) {
+.drop-container{
+display: none;
+}
+}

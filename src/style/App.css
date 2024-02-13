@@ -159,7 +159,9 @@ color: #000 !important;
   display: none;
 }
 @media screen and (max-width: 767px) {
- 
+  .login-component{
+    display: none;
+  }
   #header-icons{
     position: relative;
     left: 10px;
@@ -238,7 +240,7 @@ margin-left: 0 !important;
     margin-top: 50px;
   }
   #navbar li a {
-    color: #fff;
+    color: #fff !important;
   }
   #navbar li {
     margin-bottom: 25px;
@@ -745,8 +747,13 @@ form {
 
   }
 }
-
+.li-3rd-child{
+  display: none;
+}
 @media screen and (max-width: 769px) {
+  .li-3rd-child{
+    display: block;
+  }
   .products-section {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
@@ -957,4 +964,25 @@ color: red;
 .status-succeed{
   margin-top: 10px;
   color: #79aa7a;
+}
+.info-container{
+  margin: 10px auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 50px;
+  background-color: #eee;
+  width: 300px;
+  cursor: pointer;
+  height: 100px;
+  border-radius: 4px;
+}
+.info-container i {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 10px;
+}
+a{
+  text-decoration: none;
+  color: inherit;
 }

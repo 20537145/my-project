@@ -9,7 +9,7 @@ const UserInfo = () => {
       <main>
         <div className='info-container'>
         <div >
-            <Link to='/'>
+            <Link to='me'>
             <i><FontAwesomeIcon icon={faUserCircle} /></i>
             <h2>INFORMATIONS</h2>
             </Link>
