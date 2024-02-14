@@ -17,7 +17,7 @@ const dispatch = useDispatch()
     
       <ul className={background?'ul_container':''}>
         <li><Link to='profile'>profil</Link></li>
-        {isAuth?(<li onClick={logoutHandler}>déconnecter</li>):(<li> <Link to='login'>connecter</Link></li>)}
+        {isAuth?(<li onClick={logoutHandler}><Link to='/'>déconnecter</Link></li>):(<li> <Link to='login'>connecter</Link></li>)}
         
       </ul>
     </div>
