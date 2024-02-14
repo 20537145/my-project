@@ -107,7 +107,10 @@ function NavLayout() {
               <li className="li-3rd-child" onClick={() => setClicked(false)}>
                 <Link to="profile">profile</Link>
               </li>
-              {isAuth?(<li onClick={logoutHandler}><Link to="/">déconnecter</Link></li>):(<li onClick={()=>setClicked(false)}> <Link to='login'>connecter</Link></li>)}
+            <li onClick={() => setClicked(false)}>
+                <Link to="profile">profile</Link>
+              </li>
+              {isAuth?(<li className="li-3rd-child" onClick={logoutHandler}><Link to="/">déconnecter</Link></li>):(<li className="li-3rd-child" onClick={()=>setClicked(false)}> <Link to='login'>connecter</Link></li>)}
             </ul>
           </div>
           <div

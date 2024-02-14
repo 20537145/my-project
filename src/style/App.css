@@ -114,7 +114,7 @@ color: #000 !important;
   border-right: 1.6px solid #000 !important;
   transition: 0.5s;
 }
-.ul-bg.active #navbar li:last-child {
+.ul-bg.active #navbar li:nth-child(4) {
   border-right: 0 !important;
 }
 #navbar li a:focus {
@@ -129,8 +129,8 @@ color: #000 !important;
   bottom: -29px;
   left: 0;
 }
-#navbar li:last-child {
-  border-right: 0;
+#navbar li:nth-child(4) {
+  border-right: none !important;
 }
 
 #navbar li a:hover {
@@ -749,6 +749,7 @@ form {
 }
 .li-3rd-child{
   display: none;
+  
 }
 @media screen and (max-width: 769px) {
   .li-3rd-child{
