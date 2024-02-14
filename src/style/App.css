@@ -114,7 +114,10 @@ color: #000 !important;
   border-right: 1.6px solid #000 !important;
   transition: 0.5s;
 }
-.ul-bg.active #navbar li:nth-child(4) {
+#navbar li:nth-child(2) {
+  border-right: none !important;
+}
+.ul-bg.active #navbar li:nth-child(2) {
   border-right: 0 !important;
 }
 #navbar li a:focus {
@@ -128,9 +131,6 @@ color: #000 !important;
   position: absolute;
   bottom: -29px;
   left: 0;
-}
-#navbar li:nth-child(4) {
-  border-right: none !important;
 }
 
 #navbar li a:hover {

@@ -3,6 +3,7 @@ import { Route, RouterProvider, createBrowserRouter, createRoutesFromElements } 
 import './style/App.css'
 import './style/list.css'
 import './style/dropDown.css'
+import './style/search.css'
 
 import NavLayout from './Pages/NavLayout';
 import HomePage from './Pages/HomePage';
