@@ -1,17 +1,19 @@
 // SearchComponent.js
-import React from 'react';
+import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { searchProduct, setSearchTerm } from '../redux/productList';
 import { useNavigate } from 'react-router-dom';
 
 const Search = () => {
   const dispatch = useDispatch();
+  const [clicked,setClicked]=useState(false)
   const searchTerm = useSelector((state) => state.productsList.searchTerm);
+  const status = useSelector((state) => state.productsList.status);
   const searchResults = useSelector((state) => state.productsList.searchResults);
   const navigate = useNavigate();
 
   const handleSearch = () => {
-    
+    setClicked(true)
     dispatch(searchProduct(searchTerm));
   };
   const handleClick = (productId) => {
@@ -21,7 +23,12 @@ const Search = () => {
   const handleKeyPress = (e) => {
     if (e.key === 'Enter') {
       handleSearch();
+      setClicked(true)
     }
+  };
+  const handleInputChange = (e) => {
+    dispatch(setSearchTerm(e.target.value));
+    setClicked(false); 
   };
   return (
     <div>
@@ -32,7 +39,7 @@ const Search = () => {
         type="text"
         placeholder="RECHERCHE..."
         value={searchTerm}
-        onChange={(e) => dispatch(setSearchTerm(e.target.value))}
+        onChange={handleInputChange}
         onKeyPress={handleKeyPress}
       />
       <span className="icon" onClick={handleSearch}> 
@@ -43,7 +50,12 @@ const Search = () => {
       <div>
       <div className="product-cont">
     <section className="products-section">
-  {searchResults && searchResults.map((product) => (
+    {searchResults.length === 0 && clicked ===true && searchTerm.trim() !== "" && status !== 'loading' && (
+      <div className='notFound-product'>
+        <h2 >Aucun produit trouvé avec le terme de recherche "{searchTerm}".</h2>
+        </div>
+          )}
+  {searchResults.map((product) => (
      <div className="product-card" key={product._id} onClick={()=>handleClick(product._id)}>
      <img src={`https://h-royal-backned.onrender.com/uploads/${product.image}`} alt={` ${product.name}`} />
      <div className="product-details">

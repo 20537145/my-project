@@ -40,6 +40,18 @@
     font-family: "raleway", sans-serif;
     margin-bottom: 17px;
   }
+  .notFound-product h2{
+    color: #151208d5;
+    font-weight: 300;
+    font-family: "raleway", sans-serif;
+    margin-bottom: 17px;
+  }
+  .notFound-product{
+    position: absolute;
+    top: 27%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
   @keyframes anim {
     0%,
     100% {
