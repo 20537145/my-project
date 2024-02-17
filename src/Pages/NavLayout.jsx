@@ -104,11 +104,11 @@ function NavLayout() {
             </Link>
           </div>
           <div className={nav ? "ul-bg active" : ""}>
-            <ul id="navbar" className={clicked ? "navbar active " : "navbar"}>
+            <ul id="navbar" className={`${clicked ? "navbar active " : "navbar"}`}>
               <li onClick={() => setClicked(false)}>
                 <Link to="about">About</Link>
               </li>
-              <li  onClick={() => setClicked(false)}>
+              <li className={role==="admin"?"br-black":"br-none"} onClick={() => setClicked(false)}>
                 <Link to="products">Shop</Link>
               </li>
               

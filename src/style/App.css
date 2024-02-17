@@ -117,6 +117,12 @@ color: #000 !important;
 #navbar li:nth-child(2) {
   border-right: none !important;
 }
+.br-black{
+  border-right: 1.6px solid #000 !important;
+}
+.br-none{
+  border-right: 0 !important;
+}
 .ul-bg.active #navbar li:nth-child(2) {
   border-right: 0 !important;
 }
@@ -128,6 +134,7 @@ color: #000 !important;
   border-left: 1.6px solid #fff !important;
   border-right: 0 !important;
 }
+
 #navbar li a:focus {
   color: #000;
 }
