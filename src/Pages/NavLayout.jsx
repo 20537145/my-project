@@ -26,6 +26,8 @@ function NavLayout() {
   }, []);
   const token = useSelector((state) => state.auth.token);
   const user = useSelector((state) => state.auth.user);
+  const storedUser = JSON.parse(localStorage.getItem('user'));
+  const role = storedUser?.role
   const dropped=()=>{
     setDrop(true);
     
@@ -73,7 +75,12 @@ function NavLayout() {
     setNav(true);
   };
   const isntHovered = () => {
-    setNav(false);
+    if (window.scrollY >= 9) {
+    setNav(true);
+    }else{
+
+      setNav(false);
+    }
   };
   const isAuth = useSelector((state) => state.auth.isAuth);
   const logoutHandler = () => {
@@ -101,13 +108,19 @@ function NavLayout() {
               <li onClick={() => setClicked(false)}>
                 <Link to="about">About</Link>
               </li>
-              <li onClick={() => setClicked(false)}>
+              <li  onClick={() => setClicked(false)}>
                 <Link to="products">Shop</Link>
               </li>
+              
               <li className="li-3rd-child" onClick={() => setClicked(false)}>
                 <Link to="profile">profile</Link>
               </li>
               {isAuth?(<li className="li-3rd-child" onClick={logoutHandler}><Link to="/">déconnecter</Link></li>):(<li className="li-3rd-child" onClick={()=>setClicked(false)}> <Link to='login'>connecter</Link></li>)}
+              {
+                role==='admin'?(<li  onClick={() => setClicked(false)}>
+                <Link to="products/create">create</Link>
+              </li>):(<></>)
+              }
             </ul>
           </div>
           <div
