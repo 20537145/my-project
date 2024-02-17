@@ -1,5 +1,6 @@
 .input-container {
-    width: 220px;
+  width: 220px;
+
     position: relative;
     margin: auto;
   }
@@ -13,7 +14,10 @@
   }
   
   .input {
-    width: 100%;
+    display: flex;
+    justify-content: center;
+    width: 220px;
+    margin: auto;
     height: 40px;
     padding: 10px;
     transition: .2s linear;
@@ -40,17 +44,29 @@
     font-family: "raleway", sans-serif;
     margin-bottom: 17px;
   }
-  .notFound-product h2{
+  .notFound-product {
+    position: relative;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, 20%);
+    text-align: center;
+  }
+  
+  .notFound-product h2 {
     color: #151208d5;
     font-weight: 300;
     font-family: "raleway", sans-serif;
     margin-bottom: 17px;
+    display: inline-block;
+    margin: 20px auto; /* Center the element horizontally */
   }
-  .notFound-product{
-    position: absolute;
-    top: 27%;
-    left: 50%;
-    transform: translate(-50%, -50%);
+  
+  
+  
+  .products-section.active{
+    display: grid;
+    grid-template-columns:repeat(4,1fr) ;
+    grid-template-rows:repeat(1,1fr) ;
   }
   @keyframes anim {
     0%,
@@ -60,5 +76,23 @@
   
     50% {
       transform: translateY(calc(-50% - 5px)) scale(1.1);
+    }
+  }
+  
+
+  @media screen and (max-width: 769px) {
+     .notFound-product{
+      padding: 0 30px;
+    } 
+    .products-section.active{
+      display: grid;
+      grid-template-columns:repeat(2,1fr) ;
+      grid-template-rows:repeat(1,1fr) ;
+    }
+    .input{
+      width: 190px;
+    }
+    .icon{
+      right: 25px;
     }
   }

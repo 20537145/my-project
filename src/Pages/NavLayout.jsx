@@ -103,7 +103,7 @@ function NavLayout() {
               <img src={logo} alt="" />
             </Link>
           </div>
-          <div className={nav ? "ul-bg active" : ""}>
+          <div className={nav ? "ul-bg active" : "ul-bg"}>
             <ul id="navbar" className={`${clicked ? "navbar active " : "navbar"}`}>
               <li onClick={() => setClicked(false)}>
                 <Link to="about">About</Link>
