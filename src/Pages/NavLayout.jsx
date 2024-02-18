@@ -167,8 +167,8 @@ function NavLayout() {
                 </Link>
               </div>
         
-          </div>
           {drop && <UserForms/>}
+          </div>
         </nav>
       </header>
       <Outlet />

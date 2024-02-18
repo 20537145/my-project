@@ -1,14 +1,18 @@
 .drop-container{
     position: absolute !important;
-    right: 130px;
-    top: 4rem;
+    right: 0;
+    top: 3rem;
     display: flex;
+    justify-content: center;
+    align-items: center;
     flex-direction: column;
     background-color: #fff;
     border: solid 1px gray;
     border-radius: 15px;
     padding: 10px;
     overflow: hidden;
+    width: 120px;
+    height: 80px;
 }
 .ul_container,
 .drop-container ul{
@@ -30,6 +34,7 @@
     text-decoration: none;
     color: black !important;
     font-family: "raleway", sans-serif;
+    font-size:medium !important;
 }
 @media screen and (max-width: 769px) {
 .drop-container{
