@@ -1,11 +1,10 @@
-// src/redux/productSlice.js
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 import axios from 'axios';
 
 export const createProduct = createAsyncThunk('product/createProduct', async (productData) => {
   try {
-    const response = await axios.post('http://localhost:6010/products/create', productData);
-    return response.data.product; // Assuming the server sends back the created product
+    const response = await axios.post('https://h-royal-backned.onrender.com/products/create', productData);
+    return response.data.product;
   } catch (error) {
     console.error('Error creating product:', error);
     throw new Error('Error creating product.');

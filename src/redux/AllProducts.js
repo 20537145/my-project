@@ -2,7 +2,7 @@ import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import axios from "axios";
 
 export const fetchProducts = createAsyncThunk('carte/fetchProducts',async()=>{
-  const res = await axios.get('http://localhost:6010/products/all')
+  const res = await axios.get('https://h-royal-backned.onrender.com/products/all')
   return res.data
 })
 

@@ -12,7 +12,7 @@ export const fetchUserProfile = createAsyncThunk(
   "auth/fetchProfile",
   async (token, { rejectWithValue }) => {
     try {
-      const res = await axios.get("http://localhost:6010/profile", {
+      const res = await axios.get("https://h-royal-backned.onrender.com/profile", {
         headers: {
           "x-auth-token": token,
         },
@@ -28,7 +28,7 @@ export const registerUser = createAsyncThunk(
   "auth/register",
   async (newUser, { rejectedWithValue }) => {
     try {
-      const res = await axios.post("http://localhost:6010/register", newUser);
+      const res = await axios.post("https://h-royal-backned.onrender.com/register", newUser);
       return res.data;
     } catch (error) {
       return rejectedWithValue(error.response.data.message);
@@ -39,8 +39,7 @@ export const loginUser = createAsyncThunk(
   "auth/login",
   async (check, { rejectedWithValue, dispatch }) => {
     try {
-      const res = await axios.post("http://localhost:6010/login", check);
-      // After successful login, fetch user profile to populate 'user' with 'id'
+      const res = await axios.post("https://h-royal-backned.onrender.com/login", check);
       dispatch(fetchUserProfile(res.data.token));
       return res.data;
     } catch (error) {
@@ -53,7 +52,7 @@ export const fetchAllUsers = createAsyncThunk(
   "auth/fetchUsers",
   async (token, { rejectedWithValue }) => {
     try {
-      const res = await axios.get("http://localhost:6010/all", {
+      const res = await axios.get("https://h-royal-backned.onrender.com/all", {
         headers: {
           "x-auth-token": token,
         },

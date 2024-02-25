@@ -32,7 +32,7 @@ useEffect(() => {
           cartItems.map((item, index) => (
             <div className="cart-container" key={index}>
               <img
-                src={`http://localhost:6010/uploads/${item.image}`}
+                src={`https://h-royal-backned.onrender.com/uploads/${item.image}`}
                 alt={item.name}
               />
               <div className="cart-info">

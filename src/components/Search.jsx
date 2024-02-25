@@ -57,7 +57,7 @@ const Search = () => {
     
   {searchResults.map((product) => (
      <div className="product-card" key={product._id} onClick={()=>handleClick(product._id)}>
-     <img src={`http://localhost:6010/uploads/${product.image}`} alt={` ${product.name}`} />
+     <img src={`https://h-royal-backned.onrender.com/uploads/${product.image}`} alt={` ${product.name}`} />
      <div className="product-details">
        <h2 className="product-name">{product.name}</h2>
        <p className="price">{product.price} DT</p>

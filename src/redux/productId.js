@@ -4,7 +4,7 @@ import axios from "axios";
 export const fetchProductById = createAsyncThunk(
   'productsId/fetchProductById',
   async (productId) => {
-    const response = await axios.get(`http://localhost:6010/products/${productId}`);
+    const response = await axios.get(`https://h-royal-backned.onrender.com/products/${productId}`);
     return response.data.product;
   }
 );
@@ -13,13 +13,12 @@ const productsId = createSlice({
   name: "productsId",
   initialState: {
     selectedProduct: null,
-    cart: [], // Ensure that cart is initialized as an empty array
+    cart: [], 
     error: null,
     status: 'idle',
   },
   reducers: {
     addToCart: (state, action) => {
-      // Use Immer to update the state in a mutable way
       state.cart.push(action.payload);
     },
   },
