@@ -4,7 +4,6 @@ import productSlice from '../redux/productCreate'
 import productsCard from '../redux/productList';
 import productsId from '../redux/productId';
 import userUpdateSlice from "../redux/userUpdate";
-import productItemsSlice from "../redux/Cart";
 export const store = configureStore({
     reducer:{
         auth : authSlice,
@@ -12,7 +11,7 @@ export const store = configureStore({
         productsList:productsCard ,
         productId : productsId,
         userUpdate: userUpdateSlice,
-        productCart:productItemsSlice
+        
     },
  
   
