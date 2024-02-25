@@ -58,7 +58,7 @@ const ProductIdShop = () => {
       <section>
         <div className="shop-container">
           <img
-            src={`http://localhost:6010/uploads/${selectedProduct.image}`}
+            src={`https://h-royal-backned.onrender.com/uploads/${selectedProduct.image}`}
             alt={selectedProduct.name}
           />
           <div className="product-details allofit">
