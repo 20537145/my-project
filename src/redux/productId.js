@@ -1,27 +1,28 @@
-// productsId.js
-import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
+import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import axios from "axios";
 
-// Async thunk for fetching a single product by ID
 export const fetchProductById = createAsyncThunk(
-  'productsId/fetchProductById',  // Corrected the slice name here
+  'productsId/fetchProductById',
   async (productId) => {
-    const response = await axios.get(`https://h-royal-backned.onrender.com/products/${productId}`);
-  
-
+    const response = await axios.get(`http://localhost:6010/products/${productId}`);
     return response.data.product;
-
   }
 );
 
 const productsId = createSlice({
-  name: "productsId",  // Updated the slice name here
+  name: "productsId",
   initialState: {
     selectedProduct: null,
+    cart: [], // Ensure that cart is initialized as an empty array
     error: null,
     status: 'idle',
   },
-  reducers: {},
+  reducers: {
+    addToCart: (state, action) => {
+      // Use Immer to update the state in a mutable way
+      state.cart.push(action.payload);
+    },
+  },
   extraReducers: (builder) => {
     builder
       .addCase(fetchProductById.pending, (state) => {
@@ -40,4 +41,5 @@ const productsId = createSlice({
   },
 });
 
+export const { addToCart } = productsId.actions;
 export default productsId.reducer;

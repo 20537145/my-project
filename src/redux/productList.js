@@ -2,12 +2,12 @@ import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import axios from "axios";
 
 export const fetchProducts = createAsyncThunk('carte/fetchProducts',async()=>{
-  const res = await axios.get('https://h-royal-backned.onrender.com/products/list')
+  const res = await axios.get('http://localhost:6010/products/list')
   return res.data
 })
 export const searchProduct = createAsyncThunk('product/searchProduct', async (searchTerm, { rejectWithValue }) => {
   try {
-    const response = await axios.get(`https://h-royal-backned.onrender.com/products/search?name=${searchTerm}`);
+    const response = await axios.get(`http://localhost:6010/products/search?name=${searchTerm}`);
     return response.data;
   } catch (error) {
     return rejectWithValue(error.response.data);

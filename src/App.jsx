@@ -4,6 +4,7 @@ import './style/App.css'
 import './style/list.css'
 import './style/dropDown.css'
 import './style/search.css'
+import './style/Cart.css'
 
 import NavLayout from './Pages/NavLayout';
 import HomePage from './Pages/HomePage';
@@ -17,6 +18,7 @@ import ProductIdShop from './components/ProductIdShop';
 import WishList from './components/WishList';
 import Cart from './components/Cart';
 import UserInfo from './Pages/userInfo';
+import UserUpdateComp from './Pages/UserUpdateComp';
 
 
 
@@ -31,6 +33,7 @@ const router = createBrowserRouter(
       <Route path='profile'  >
         <Route index element={<UserInfo />}/>
       <Route path='me' element={<Profile />} />
+      <Route path=':userId' element={<UserUpdateComp />} />
       </Route>
       <Route path='login' element={<Login />} />
       <Route path='wishlist' element={<WishList />} />

@@ -19,21 +19,26 @@ const AllProductsComponent = () => {
   };
   return (
     <div className="product-cont">
-    <section className="products-section">
-      {products.map((product) => (
-        <div className="product-card" key={product._id} onClick={()=>handleClick(product._id)}>
-          <img src={`https://h-royal-backned.onrender.com/uploads/${product.image}`} alt={` ${product.name}`} />
+  <section className="products-section">
+    {products.map((product) => (
+      product.price > 0 ? (
+        <div className="product-card" key={product._id} onClick={() => handleClick(product._id)}>
+          <img src={`http://localhost:6010/uploads/${product.image}`} alt={` ${product.name}`} />
           <div className="product-details">
             <h2 className="product-name">{product.name}</h2>
             <p className="price">{product.price} DT</p>
-            <p className={ product.Availability ? 'in-stock' : 'out-of-stock'}>
-              {product.Availability ? 'En stock' : 'Hors stock'}
+            <p className={product.availability ? 'in-stock' : 'out-of-stock'}>
+              {product.availability ? 'En stock' : 'Hors stock'}
             </p>
           </div>
         </div>
-      ))}
-    </section>
-  </div>
+      ) : (
+        <div key={product._id} style={{ display: 'none' }}></div>
+      )
+    ))}
+  </section>
+</div>
+
   );
 };
 

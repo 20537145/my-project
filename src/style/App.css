@@ -227,6 +227,10 @@ margin-left: 0 !important;
   .nav.active #navbar li a {
     color: #fff !important;
   }
+  #navbar li:last-child{
+    border: none !important;
+  }
+  .nav.active #navbar li:last-child,
   .nav.active #navbar li {
     border: none !important;
   }
@@ -732,7 +736,7 @@ form {
   .products-section {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    grid-template-rows: repeat(4, 1fr);
+    grid-template-rows: repeat(3, 1fr);
   }
   .product-card {
     margin: auto;
@@ -1002,3 +1006,6 @@ a{
   text-decoration: none;
   color: inherit;
 }
+/* .d-none{
+  display: none !important;
+} */

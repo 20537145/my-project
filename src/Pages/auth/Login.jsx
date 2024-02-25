@@ -45,11 +45,7 @@ const Login = () => {
 	<div className="form-container sign-up-container">
 		<form action="#" className='cont-input'>
 			<h1>Créer un compte</h1>
-			<div className="social-container">
-				<a href="https://www.facebook.com" className="social link"><i className="fab fa-facebook-f"></i></a>
-				<a href="https://www.facebook.com" className="social link"><i className="fab fa-google-plus-g"></i></a>
-				<a href="https://www.facebook.com" className="social link"><i className="fab fa-linkedin-in"></i></a>
-			</div>
+			
 			<span className='span'>ou utilisez votre email pour vous inscrire</span>
 			<input onChange={(e)=>setFirstName(e.target.value)} value={firstName} type="text" placeholder="Prénom" />
 			<input onChange={(e)=>setLastName(e.target.value)} value={lastName} type="text" placeholder="Nom" />
@@ -62,11 +58,7 @@ const Login = () => {
 	<div className="form-container sign-in-container">
 		<form action="#" className='cont-input'>
 			<h1 className='h1'>Se connecter</h1>
-			<div className="social-container">
-				<a href="https://www.facebook.com"  className="social link"><i className="fab fa-facebook-f"></i></a>
-				<a href="https://www.facebook.com" className="social link"><i className="fab fa-google-plus-g"></i></a>
-				<a href="https://www.facebook.com" className="social link"><i className="fab fa-linkedin-in"></i></a>
-			</div>
+			
 			<span className='span'>ou utilisez votre compte</span>
 			<input onChange={(e)=>setEmail(e.target.value)} value={email} type="email" placeholder="E-mail" />
 			<input onChange={(e)=>setPassword(e.target.value)} value={password} type="password" placeholder="Mot de passe" />
