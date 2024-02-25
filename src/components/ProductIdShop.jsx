@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
-import { fetchProductById } from "../redux/productId"; // Import the addProduct action
+import { fetchProductById } from "../redux/productId"; 
 
 
 const ProductIdShop = () => {
@@ -29,7 +29,6 @@ const ProductIdShop = () => {
       console.log("Product added to cart:", selectedProduct);
     } else {
       console.log("Product already exists in the cart");
-      // You can handle this case as needed (e.g., show a message to the user)
     }
   };
   
@@ -53,7 +52,7 @@ const ProductIdShop = () => {
     return <div>Product not found</div>;
   }
 
-  // Display product details
+
   return (
     <div>
       <section>

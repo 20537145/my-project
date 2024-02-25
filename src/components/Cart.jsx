@@ -4,7 +4,6 @@ const Cart = () => {
   const [cartItems, setCartItems] = useState([]);
 
 useEffect(() => {
-  // Retrieve cart items from localStorage
   const storedUser = JSON.parse(localStorage.getItem("user")) || {};
   const userCart = storedUser.cart || [];
 
@@ -14,7 +13,6 @@ useEffect(() => {
 }, []);
 
   const removeFromCart = (index) => {
-    // Ensure that cartItems is an array before updating
     if (Array.isArray(cartItems)) {
       const updatedCartItems = cartItems.filter((_, i) => i !== index);
 
