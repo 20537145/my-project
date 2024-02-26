@@ -1,40 +1,49 @@
-import React, { useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
-import { fetchProductById } from "../redux/productId"; 
-
+import { fetchProductById } from "../redux/productId";
 
 const ProductIdShop = () => {
   const dispatch = useDispatch();
   const { productId } = useParams();
   const selectedProduct = useSelector((state) => state.productId.selectedProduct);
   const status = useSelector((state) => state.productId.status);
-  const isAuth = useSelector((state) => state.auth.isAuth);
   const error = useSelector((state) => state.productId.error);
+
+  const [quantity, setQuantity] = useState(1);
 
   const addToCart = () => {
     const storedUser = JSON.parse(localStorage.getItem("user")) || {};
     const userData = storedUser || {};
     const existingCartItems = userData.cart || [];
-  
+
     const isProductInCart = existingCartItems.some(
       (item) => item._id === selectedProduct._id
     );
-  
-    if (!isProductInCart && isAuth === true) {
-      const updatedCartItems = [...existingCartItems, selectedProduct];
+
+    if (!isProductInCart) {
+      const updatedCartItems = [
+        ...existingCartItems,
+        { ...selectedProduct, quantity: quantity } 
+      ];
       const updatedUser = { ...userData, cart: updatedCartItems };
-  
+
       localStorage.setItem("user", JSON.stringify(updatedUser));
-      console.log("Product added to cart:", selectedProduct);
+      console.log("Product added to cart:", { ...selectedProduct, quantity });
     } else {
       console.log("Product already exists in the cart");
     }
   };
-  
-  
-  
-  
+
+  const handleDecrease = () => {
+    if (quantity > 1) {
+      setQuantity(quantity - 1);
+    }
+  };
+
+  const handleIncrease = () => {
+    setQuantity(quantity + 1);
+  };
 
   useEffect(() => {
     dispatch(fetchProductById(productId));
@@ -51,7 +60,6 @@ const ProductIdShop = () => {
   if (!selectedProduct) {
     return <div>Product not found</div>;
   }
-
 
   return (
     <div>
@@ -74,9 +82,9 @@ const ProductIdShop = () => {
             <hr className="hr" />
             <p>{selectedProduct.description}</p>
             <div className="product-quantity">
-              <button>-</button>
-              <span></span>
-              <button>+</button>
+              <button onClick={handleDecrease}>-</button>
+              <span>{quantity}</span>
+              <button onClick={handleIncrease}>+</button>
             </div>
             <button className="button shop" onClick={addToCart}>
               Ajouter au panier

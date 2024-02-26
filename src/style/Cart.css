@@ -1,0 +1,110 @@
+.cont-cart{
+    width: 80% !important;
+    margin: auto;
+  font-family: "Raleway", sans-serif;
+  margin-bottom: 20px;
+
+}
+.no-cart{
+    padding-bottom: 20px;
+    padding-left: 20px;
+
+}
+.home-cart{
+    margin-top: 20px;
+    margin-bottom: 20px;
+    border: 1px solid #eee;
+    
+
+}
+.panier{
+  border: 1.5px solid #eee;
+
+
+}
+.panier {
+    padding: 0 !important;
+    margin-bottom: 20px;
+}
+.panier h4{
+    margin-bottom: 20px;
+    border-bottom: 1px solid #eee !important;
+    border-radius: 0% !important;
+    padding: 15px 10px;
+    font-weight: 500;
+}
+
+.cont-cart hr{
+    width: 98% !important;
+    margin: auto;
+    
+}
+.cart-overview{
+    border-radius: 5px;
+    width: 100%;
+    background-color: #fff;
+    padding: 12px 10px;
+    
+}
+.cart-container{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    width: 100%;
+
+}
+.pr-info{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 20px;
+    width: 60%;
+}
+.pr-info img{
+    margin-right: 20px;
+}
+.br-r{
+    border-right: #bbb 1px solid;
+    height: 90px;
+    padding: 0 20px;
+    
+}
+
+.cart-container img{
+    width: 120px;
+    height: 120px;
+}
+.commander-actions{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.rm-btn{
+    border: none;
+    background-color: #fff;
+    cursor: pointer;
+    position: relative;
+    right: 30px;
+}
+.bb-n{
+    border-bottom: none !important;
+    font-weight: 500;
+}
+.commander-actions button{
+    background-color: #fff;
+    border-radius: 5px;
+    padding: 15px;
+    cursor: pointer;
+    border: 1px solid #000;
+
+}
+.quantity-cart{
+    display: flex;
+    align-items: center;
+}
+.quantity-btn{
+    border: none;
+    background-color: #fff;
+    padding: 5px;
+    cursor: pointer;
+}
