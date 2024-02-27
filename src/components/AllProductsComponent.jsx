@@ -27,8 +27,8 @@ const AllProductsComponent = () => {
           <div className="product-details">
             <h2 className="product-name">{product.name}</h2>
             <p className="price">{product.price} DT</p>
-            <p className={product.availability ? 'in-stock' : 'out-of-stock'}>
-              {product.availability ? 'En stock' : 'Hors stock'}
+            <p className={product.Availability ? 'in-stock' : 'out-of-stock'}>
+              {product.Availability ? 'En stock' : 'Hors stock'}
             </p>
           </div>
         </div>
