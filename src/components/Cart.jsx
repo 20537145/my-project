@@ -1,5 +1,3 @@
-import { faXmark } from "@fortawesome/free-solid-svg-icons";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 
@@ -7,7 +5,7 @@ const Cart = () => {
   const [cartItems, setCartItems] = useState([]);
 
   useEffect(() => {
-    const storedUser = JSON.parse(localStorage.getItem("user")) || {};
+    const storedUser = JSON.parse(localStorage.getItem("cart")) || {};
     const userCart = storedUser.cart || [];
 
     console.log("Stored Cart Items:", userCart);
@@ -19,7 +17,7 @@ const Cart = () => {
     if (Array.isArray(cartItems)) {
       const updatedCartItems = cartItems.filter((_, i) => i !== index);
 
-      localStorage.setItem("user", JSON.stringify({ cart: updatedCartItems }));
+      localStorage.setItem("cart", JSON.stringify({ cart: updatedCartItems }));
 
       setCartItems(updatedCartItems);
     } else {
@@ -31,7 +29,7 @@ const Cart = () => {
     const updatedCartItems = [...cartItems];
     updatedCartItems[index].quantity += 1;
 
-    localStorage.setItem("user", JSON.stringify({ cart: updatedCartItems }));
+    localStorage.setItem("cart", JSON.stringify({ cart: updatedCartItems }));
 
     setCartItems(updatedCartItems);
   };
@@ -42,7 +40,7 @@ const Cart = () => {
       updatedCartItems[index].quantity -= 1;
     }
 
-    localStorage.setItem("user", JSON.stringify({ cart: updatedCartItems }));
+    localStorage.setItem("cart", JSON.stringify({ cart: updatedCartItems }));
 
     setCartItems(updatedCartItems);
   };
@@ -68,27 +66,29 @@ const Cart = () => {
                     src={`https://h-royal-backned.onrender.com/uploads/${item.image}`}
                     alt={item.name}
                   />
-                  <div className="br-r">
+                  <div className="br-r flex-col">
                     <p> {item.name}</p>
-                  </div>
-                  <div className="br-r bb-n">
                     <p >{item.price} DT</p>
                   </div>
+                  
+                 
                   <div className="quantity-cart br-r">
                     <div>
-                      <span>{item.quantity}</span>
-                    </div>
-                  
-                    <button className="quantity-btn" onClick={() => increaseQuantity(index)}>+</button>
-                    <button className="quantity-btn" onClick={() => decreaseQuantity(index)}>-</button>
                     
+                    <button className="quantity-btn" onClick={() => increaseQuantity(index)}>+</button>
+                      <span className="quantity-span">{item.quantity}</span>
+                    <button className="quantity-btn" onClick={() => decreaseQuantity(index)}>-</button>
+                    </div>
+                    <div>
+               
+                <button onClick={() => removeFromCart(index)} class="cart-btn">RETIRER</button>
+                 
+                </div>
+                </div>
                   </div>
                 </div>
-                <button className="rm-btn" onClick={() => removeFromCart(index)}>
-                  <i><FontAwesomeIcon icon={faXmark} /></i>
-                </button>
               </div>
-            </div>
+           
           ))
         ) : (
           <p className="no-cart">Il n'y a plus d'articles dans votre panier</p>

@@ -14,7 +14,6 @@ const productsCard = createSlice({
     status: 'idle',
   },
   reducer:{
-
   },
   extraReducers:builder=>{
     builder.addCase(fetchProducts.pending, (state) => {
@@ -25,7 +24,6 @@ const productsCard = createSlice({
       state.products = action.payload
       state.error = null
       state.status = 'succeeded';
-
     })
     .addCase(fetchProducts.rejected, (state, action) => {
       state.status = 'failed';

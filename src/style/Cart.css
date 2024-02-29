@@ -78,17 +78,18 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
+    
 }
 .rm-btn{
     border: none;
     background-color: #fff;
     cursor: pointer;
-    position: relative;
-    right: 30px;
 }
-.bb-n{
-    border-bottom: none !important;
-    font-weight: 500;
+
+.flex-col{
+    display: flex;
+    flex-direction: column;
+    
 }
 .commander-actions button{
     background-color: #fff;
@@ -101,10 +102,79 @@
 .quantity-cart{
     display: flex;
     align-items: center;
+    flex-direction: column;
 }
 .quantity-btn{
     border: none;
-    background-color: #fff;
-    padding: 5px;
+    background-color: #eee;
+    padding: 0 7px;
     cursor: pointer;
 }
+.quantity-span{
+    padding: 0 10px;
+}
+.flex-col p:first-child{
+    margin-bottom: 20px;
+}
+@media screen and  (max-width: 769px) {
+    .cart-container img{
+        width: 80px;
+        height: 80px;
+    }
+    .br-r{
+        border-right: none;
+    padding: 0 5px;
+
+    }
+    .pr-info img{
+        margin-right: 10px;
+    }
+    .cart-container{
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        width: 100%;
+    
+    }
+    .pr-info{
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin-bottom: 20px;
+        width: 99%;
+    }
+}
+/*********************************************************/
+.cart-btn {
+    display: inline-block;
+  font-family: "Raleway", sans-serif;
+    font-weight: 500;
+    position: relative;
+    text-decoration: none ;
+    background-color: #fff;
+    padding-bottom: 5px; 
+    border: none;
+    transition: border-bottom-color 0.3s ease; 
+    color: #333; 
+    margin-top: 20px;
+    cursor: pointer;
+  }
+
+  .cart-btn:hover {
+    border-bottom-color: #000; 
+  }
+
+  .cart-btn::before {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 1px; 
+    background-color: #333; 
+    transition: width 0.3s ease; 
+  }
+
+  .cart-btn:hover::before {
+    width: 100%;
+  }

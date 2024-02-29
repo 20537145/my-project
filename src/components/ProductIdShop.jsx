@@ -13,7 +13,7 @@ const ProductIdShop = () => {
   const [quantity, setQuantity] = useState(1);
 
   const addToCart = () => {
-    const storedUser = JSON.parse(localStorage.getItem("user")) || {};
+    const storedUser = JSON.parse(localStorage.getItem("cart")) || {};
     const userData = storedUser || {};
     const existingCartItems = userData.cart || [];
 
@@ -28,11 +28,9 @@ const ProductIdShop = () => {
       ];
       const updatedUser = { ...userData, cart: updatedCartItems };
 
-      localStorage.setItem("user", JSON.stringify(updatedUser));
-      console.log("Product added to cart:", { ...selectedProduct, quantity });
-    } else {
-      console.log("Product already exists in the cart");
-    }
+      localStorage.setItem("cart", JSON.stringify(updatedUser));
+     
+    } 
   };
 
   const handleDecrease = () => {
