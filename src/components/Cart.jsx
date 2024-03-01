@@ -8,8 +8,6 @@ const Cart = () => {
     const storedUser = JSON.parse(localStorage.getItem("cart")) || {};
     const userCart = storedUser.cart || [];
 
-    console.log("Stored Cart Items:", userCart);
-
     setCartItems(userCart);
   }, []);
 
@@ -45,6 +43,15 @@ const Cart = () => {
     setCartItems(updatedCartItems);
   };
 
+  // Calculate total price
+  const calculateTotal = () => {
+    let total = 0;
+    cartItems.forEach((item) => {
+      total += item.price * item.quantity;
+    });
+    return total;
+  };
+
   return (
     <div className="cont-cart">
       <div className="home-cart cart-overview">
@@ -74,29 +81,24 @@ const Cart = () => {
                  
                   <div className="quantity-cart br-r">
                     <div>
-                    
-                    <button className="quantity-btn" onClick={() => increaseQuantity(index)}>+</button>
+                      <button className="quantity-btn" onClick={() => increaseQuantity(index)}>+</button>
                       <span className="quantity-span">{item.quantity}</span>
-                    <button className="quantity-btn" onClick={() => decreaseQuantity(index)}>-</button>
+                      <button className="quantity-btn" onClick={() => decreaseQuantity(index)}>-</button>
                     </div>
                     <div>
-               
-                <button onClick={() => removeFromCart(index)} class="cart-btn">RETIRER</button>
-                 
-                </div>
-                </div>
+                      <button onClick={() => removeFromCart(index)} className="cart-btn">RETIRER</button>
+                    </div>
                   </div>
                 </div>
               </div>
-           
+            </div>
           ))
         ) : (
           <p className="no-cart">Il n'y a plus d'articles dans votre panier</p>
         )}
       </section>
       <div>
-        <h2>Total TTC</h2>
-        {/* <h1>f</h1> */}
+        <h2>Total TTC: {calculateTotal()} DT</h2>
       </div>
       <div className="commander-actions">
         <button className="button"><Link to="/">Continuer Mes Achats</Link></button>
