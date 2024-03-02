@@ -1,5 +1,3 @@
-// userUpdateSlice.js
-
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 import axios from 'axios';
 
@@ -31,6 +29,7 @@ const userUpdateSlice = createSlice({
       .addCase(updateUser.fulfilled, (state, action) => {
         state.status = 'succeeded';
         state.data = action.payload;
+
       })
       .addCase(updateUser.rejected, (state, action) => {
         state.status = 'failed';
