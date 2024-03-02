@@ -4,6 +4,7 @@ import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 import axios from 'axios';
 
 const initialState = {
+  userId: JSON.parse(localStorage.getItem('user')),
   data: {},
   status: 'idle',
   error: null,
