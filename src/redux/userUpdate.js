@@ -9,7 +9,7 @@ const initialState = {
 
 export const updateUser = createAsyncThunk('userUpdate/updateUser', async ({ userId, data }) => {
   try {
-    const response = await axios.put(`https://h-royal-backned.onrender.com/profile/${userId}`, data);
+    const response = await axios.patch(`https://h-royal-backned.onrender.com/profile/${userId}`, data);
     return response.data;
   } catch (error) {
     throw error;
