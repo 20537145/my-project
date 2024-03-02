@@ -5,6 +5,7 @@ import React, { useState } from 'react';
 
 
 const UserUpdateComp = () => {
+const storedUser = JSON.parse(localStorage.getItem('user'));
   const [formData, setFormData] = useState({
     address: '',
     phoneNumber: '',
@@ -23,7 +24,7 @@ const UserUpdateComp = () => {
 
   try {
     // Assuming you have the formData state set up correctly
-    const response = await fetch(`https://h-royal-backned.onrender.com/profile/:userId`, {
+    const response = await fetch(`https://h-royal-backned.onrender.com/profile/:${storedUser._id}`, {
       method: 'PATCH',
       mode: 'cors',
       headers: {
