@@ -71,11 +71,10 @@ const UserUpdateComp = () => {
         Email:
         <input type="text" name="email" value={formData.email} onChange={handleChange} />
       </label>
-      <button type="submit" disabled={userUpdateStatus === 'loading'}>
+      <button type="submit" >
         Update User Data
       </button>
-      {userUpdateStatus === 'loading' && <p>Loading...</p>}
-      {userUpdateStatus === 'failed' && <p>Error: {error}</p>}
+      
     </form>
   );
 };
