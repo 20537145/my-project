@@ -24,12 +24,12 @@ const UserUpdateComp = () => {
     setFormData((prevData) => ({ ...prevData, [name]: value }));
   };
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
+ const handleSubmit = (e) => {
+  e.preventDefault();
 
+  dispatch(updateUser({ userId: storedUser._id, data: formData }));
+};
 
-    dispatch(updateUser({ storedUser._id, data: formData }));
-  };
 
   return (
     <form onSubmit={handleSubmit}>
