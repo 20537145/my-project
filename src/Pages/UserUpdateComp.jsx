@@ -5,7 +5,6 @@ import { useSelector } from 'react-redux';
 
 
 const UserUpdateComp = () => {
-  const userId = useSelector((state) => state.auth.user?.id);
   const [formData, setFormData] = useState({
     address: '',
     phoneNumber: '',
