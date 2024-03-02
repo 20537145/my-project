@@ -1,11 +1,15 @@
 // UserUpdateComp.js
 
 import React, { useState } from 'react';
-
-
+import { useDispatch, useSelector } from 'react-redux';
+import { updateUser } from '../redux/userUpdate'; // Make sure this import is correct
 
 const UserUpdateComp = () => {
-const storedUser = JSON.parse(localStorage.getItem('user'));
+  const dispatch = useDispatch();
+  const userId = useSelector((state) => state.auth.user?.id);
+  const userUpdateStatus = useSelector((state) => state.userUpdate.status);
+  const error = useSelector((state) => state.userUpdate.error);
+
   const [formData, setFormData] = useState({
     address: '',
     phoneNumber: '',
@@ -19,31 +23,12 @@ const storedUser = JSON.parse(localStorage.getItem('user'));
     setFormData((prevData) => ({ ...prevData, [name]: value }));
   };
 
-  const handleSubmit = async (e) => {
-  e.preventDefault();
+  const handleSubmit = (e) => {
+    e.preventDefault();
 
-  try {
-    // Assuming you have the formData state set up correctly
-    const response = await fetch(`https://h-royal-backned.onrender.com/profile/:${storedUser._id}`, {
-      method: 'PATCH',
-      mode: 'cors',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify(formData), // Use your actual form data here
-    });
-
-    if (response.ok) {
-      // Handle success (e.g., show a success message)
-      console.log('User data updated successfully!');
-    } else {
-      // Handle error (e.g., show an error message)
-      console.error('Error updating user data:', response.statusText);
-    }
-  } catch (error) {
-    console.error('Error communicating with the server:', error);
-  }
-};
+    // Dispatch the updateUser action with userId and formData
+    dispatch(updateUser({ userId, data: formData }));
+  };
 
   return (
     <form onSubmit={handleSubmit}>
@@ -71,10 +56,11 @@ const storedUser = JSON.parse(localStorage.getItem('user'));
         Email:
         <input type="text" name="email" value={formData.email} onChange={handleChange} />
       </label>
-      <button type="submit" >
+      <button type="submit" disabled={userUpdateStatus === 'loading'}>
         Update User Data
       </button>
-      
+      {userUpdateStatus === 'loading' && <p>Loading...</p>}
+      {userUpdateStatus === 'failed' && <p>Error: {error}</p>}
     </form>
   );
 };
