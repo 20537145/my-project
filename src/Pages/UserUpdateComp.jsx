@@ -23,12 +23,31 @@ const UserUpdateComp = () => {
     setFormData((prevData) => ({ ...prevData, [name]: value }));
   };
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
+  const handleSubmit = async (e) => {
+  e.preventDefault();
 
-    // Dispatch the updateUser action with userId and formData
-    dispatch(updateUser({ userId, data: formData }));
-  };
+  try {
+    // Assuming you have the formData state set up correctly
+    const response = await fetch(`https://h-royal-backned.onrender.com/profile/:userId`, {
+      method: 'PATCH',
+      mode: 'cors',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(formData), // Use your actual form data here
+    });
+
+    if (response.ok) {
+      // Handle success (e.g., show a success message)
+      console.log('User data updated successfully!');
+    } else {
+      // Handle error (e.g., show an error message)
+      console.error('Error updating user data:', response.statusText);
+    }
+  } catch (error) {
+    console.error('Error communicating with the server:', error);
+  }
+};
 
   return (
     <form onSubmit={handleSubmit}>
