@@ -1,6 +1,8 @@
+// UserUpdateComp.js
+
 import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { updateUser } from '../redux/userUpdate';
+import { updateUser } from '../redux/userUpdate'; // Make sure this import is correct
 
 const UserUpdateComp = () => {
   const dispatch = useDispatch();
@@ -24,7 +26,8 @@ const UserUpdateComp = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    dispatch(updateUser({ userId , data: formData }));
+    // Dispatch the updateUser action with userId and formData
+    dispatch(updateUser({ userId, data: formData }));
   };
 
   return (
