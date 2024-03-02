@@ -1,15 +1,11 @@
 // UserUpdateComp.js
 
 import React, { useState } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
-import { updateUser } from '../redux/userUpdate'; // Make sure this import is correct
+import { useSelector } from 'react-redux';
+
 
 const UserUpdateComp = () => {
-  const dispatch = useDispatch();
   const userId = useSelector((state) => state.auth.user?.id);
-  const userUpdateStatus = useSelector((state) => state.userUpdate.status);
-  const error = useSelector((state) => state.userUpdate.error);
-
   const [formData, setFormData] = useState({
     address: '',
     phoneNumber: '',
