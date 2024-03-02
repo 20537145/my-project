@@ -2,12 +2,12 @@
 
 import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { updateUser } from '../redux/userUpdate'; // Make sure this import is correct
+import { updateUser } from '../redux/userUpdate'; 
 
 const UserUpdateComp = () => {
   const dispatch = useDispatch();
  const storedUser = JSON.parse(localStorage.getItem('user'));
-  userId = storedUser._id
+  
   const userUpdateStatus = useSelector((state) => state.userUpdate.status);
   const error = useSelector((state) => state.userUpdate.error);
 
@@ -27,8 +27,8 @@ const UserUpdateComp = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    // Dispatch the updateUser action with userId and formData
-    dispatch(updateUser({ userId, data: formData }));
+
+    dispatch(updateUser({ storedUser._id, data: formData }));
   };
 
   return (
