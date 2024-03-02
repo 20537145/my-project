@@ -6,7 +6,8 @@ import { updateUser } from '../redux/userUpdate'; // Make sure this import is co
 
 const UserUpdateComp = () => {
   const dispatch = useDispatch();
-  const userId = useSelector((state) => state.auth.user?.id);
+ const storedUser = JSON.parse(localStorage.getItem('user'));
+  userId = storedUser._id
   const userUpdateStatus = useSelector((state) => state.userUpdate.status);
   const error = useSelector((state) => state.userUpdate.error);
 
